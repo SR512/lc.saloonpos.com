@@ -28,25 +28,15 @@ class Customer extends Model
     public $rules = [
         'first_name' => 'required',
         'last_name' => 'required',
-        'email' => 'required|email|unique:customers',
-        'mobile_number' => 'required|unique:customers|numeric|digits:10',
-        'date_of_birth' => 'required',
-        'date_of_anniversary' => 'required',
-        'address' => 'required',
-        'city' => 'required',
-        'pin_code' => 'required|numeric|digits:6'
+        'email' => 'nullable|email',
+        'mobile_number' => 'required|numeric|digits:10|unique:customers'
     ];
 
     public $update_rules = [
         'first_name' => 'required',
         'last_name' => 'required',
-        'email' => 'required|email',
-        'mobile_number' => 'required|numeric|digits:10',
-        'date_of_birth' => 'required',
-        'date_of_anniversary' => 'required',
-        'address' => 'required',
-        'city' => 'required',
-        'pin_code' => 'required|numeric|digits:6'
+        'email' => 'nullable|email',
+        'mobile_number' => 'required|numeric|digits:10'
     ];
 
     public function getFullNameAttribute()

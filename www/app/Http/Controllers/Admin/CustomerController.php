@@ -141,4 +141,10 @@ class CustomerController extends Controller
         }
         return redirect()->back();
     }
+
+    // Find Customer
+
+    public function findCustomer(Request $request){
+        return resolve('customer-repo')->filterCustomerData($request);;
+    }
 }

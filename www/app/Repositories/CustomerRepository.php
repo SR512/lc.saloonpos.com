@@ -65,12 +65,12 @@ class CustomerRepository
     {
         $customer = new Customer();
 
-        if (!empty($params->name)) {
-            $name = $params->name;
+        if (!empty($params->term)) {
+            $name = $params->term;
             $customer = $customer->where('first_name', 'LIKE', '%' . $name . '%')->orWhere('last_name', 'LIKE', '%' . $name . '%')->orWhere('mobile_number', 'LIKE', '%' . $name . '%');
         }
 
-        return $customer->latest()->paginate(config('constants.PER_PAGE'));
+        return $customer->select('id','first_name','last_name','mobile_number','email')->get();
     }
 
 }

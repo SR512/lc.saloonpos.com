@@ -15,7 +15,7 @@ class ProductRepository
     //get Product
     public function getProducts()
     {
-        return Customer::latest();
+        return Product::latest();
     }
 
     // Create New Recoard
@@ -23,10 +23,7 @@ class ProductRepository
     {
         return Product::create([
             'product_name' => $params->product_name,
-            'customer_price' => $params->customer_price,
-            'delear_price' => $params->delear_price,
-            'qty' => $params->qty,
-            'min_qty' => $params->min_qty,
+            'serial_number' => $params->customer_price,
             'created_at' => Carbon::now(),
         ]);
 
@@ -38,12 +35,8 @@ class ProductRepository
         {
             return Product::findorfail($id)->update([
                 'product_name' => $params->product_name,
-                'customer_price' => $params->customer_price,
-                'delear_price' => $params->delear_price,
-                'qty' => $params->qty,
-                'min_qty' => $params->min_qty,
-                'status' => $params->status,
-                'created_at' => Carbon::now(),
+                'serial_number' => $params->serial_number,
+                'updated_At' => Carbon::now(),
             ]);
 
         }
@@ -61,7 +54,7 @@ class ProductRepository
 
         if (!empty($params->name)) {
             $name = $params->name;
-            $product = $product->where('first_name', 'LIKE', '%' . $name . '%')->orWhere('last_name', 'LIKE', '%' . $name . '%')->orWhere('mobile_number', 'LIKE', '%' . $name . '%');
+            $product = $product->where('product_name', 'LIKE', '%' . $name . '%')->orWhere('serial_number', 'LIKE', '%' . $name . '%');
         }
 
         return $product->latest()->paginate(config('constants.PER_PAGE'));

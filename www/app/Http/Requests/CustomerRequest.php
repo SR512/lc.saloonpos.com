@@ -25,12 +25,23 @@ class CustomerRequest extends FormRequest
      */
     public function rules()
     {
-        $customer = new Customer();
+        $route = ['customers.store','customers.create'];
 
-        if (in_array($this->method(), ['PUT', 'PATCH'])) {
-            $rules = $customer->rules;
+        if (!in_array(request()->route()->getName(),$route)) {
+
+            $rules = [
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'email' => 'nullable|email',
+                'mobile_number' => 'required|numeric|digits:10'
+            ];
         }else{
-            $rules = $customer->update_rules;
+            $rules = [
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'email' => 'nullable|email',
+                'mobile_number' => 'required|numeric|digits:10|unique:customers'
+            ];
         }
 
         return $rules;

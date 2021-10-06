@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\QovexController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,25 +47,41 @@ Route::group(['middleware' => 'auth'], function () {
     // Customer Controller Route
     Route::resource('customers',CustomerController::class);
     Route::get('customer',[CustomerController::class,'index'])->name('customer.index');
-
-    // Appointment Controller Route
-    Route::resource('appointments',\App\Http\Controllers\Admin\AppointmentController::class);
-    Route::get('appointment',[\App\Http\Controllers\Admin\AppointmentController::class,'index'])->name('appointment.index');
+    Route::get('find/customer',[CustomerController::class,'findCustomer'])->name('customer.search');
 
     // Employee Controller Route
     Route::resource('employees',\App\Http\Controllers\Admin\EmployeeController::class);
-    Route::get('employees',[\App\Http\Controllers\Admin\EmployeeController::class,'index'])->name('employees.index');
+    Route::get('employee',[\App\Http\Controllers\Admin\EmployeeController::class,'index'])->name('employee.index');
 
     // Expense Controller Route
     Route::resource('expenses',\App\Http\Controllers\Admin\ExpenseController::class);
-    Route::get('expenses',[\App\Http\Controllers\Admin\ExpenseController::class,'index'])->name('expenses.index');
-
-    // Service Controller Route
-    Route::resource('services',\App\Http\Controllers\Admin\ServiceController::class);
-    Route::get('service',[\App\Http\Controllers\Admin\ServiceController::class,'index'])->name('services.index');
+    Route::get('expense',[\App\Http\Controllers\Admin\ExpenseController::class,'index'])->name('expense.index');
 
     // Product Controller Route
     Route::resource('products',\App\Http\Controllers\Admin\ProductController::class);
     Route::get('product',[\App\Http\Controllers\Admin\ProductController::class,'index'])->name('product.index');
 
+    // Attribute Controller Route
+    Route::resource('attributes',\App\Http\Controllers\Admin\AttributeController::class);
+    Route::get('attribute',[\App\Http\Controllers\Admin\AttributeController::class,'index'])->name('attribute.index');
+
+    // Invoice Controller Route
+    Route::resource('invoices',\App\Http\Controllers\Admin\InvoiceController::class);
+    Route::get('invoice',[\App\Http\Controllers\Admin\InvoiceController::class,'index'])->name('invoice.index');
+
+    // Seller Invoice Controller Route
+    Route::resource('sellerinvoices',\App\Http\Controllers\Admin\SellerInvoiceController::class);
+    Route::get('sellerinvoice',[\App\Http\Controllers\Admin\SellerInvoiceController::class,'index'])->name('sellerinvoice.index');
+
+    // Setting Controller Route
+    Route::resource('settings',\App\Http\Controllers\Admin\SettingController::class);
+    Route::get('setting',[\App\Http\Controllers\Admin\SettingController::class,'index'])->name('setting.index');
+
+    // Report Controller Route
+    Route::get('report',[\App\Http\Controllers\Admin\ReportController::class,'index'])->name('report.index');
+    Route::post('report/expense',[\App\Http\Controllers\Admin\ReportController::class,'exportExpense'])->name('expense.report.index');
+
+    Route::get('/storage-link', function () {
+        Artisan::call('storage:link');
+    });
 });

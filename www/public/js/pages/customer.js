@@ -8,11 +8,11 @@
 //     table.buttons().container().appendTo('#datatable-buttons_wrapper .col-md-6:eq(0)');
 // });
 $(function () {
-
+    var url = $('meta[name="base_url"]').attr('content');
     var table = $('#datatable-customer').DataTable({
         processing: true,
         serverSide: true,
-        ajax: window.origin+'/customer',
+        ajax: url+'/customer',
         columns: [
             {data: 'id', name: 'id'},
             {data: 'name', name: 'first_name'},

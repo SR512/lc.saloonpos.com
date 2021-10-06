@@ -8,36 +8,59 @@
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li>
-                    <a href="calendar" class="waves-effect">
+                    <a href="{{route('home')}}" class="waves-effect">
                         <i class="mdi mdi-airplay"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
-{{--                <li>--}}
-{{--                    <a href="javascript: void(0);" class="waves-effect">--}}
-{{--                        <i class="mdi mdi-airplay"></i><span class="badge badge-pill badge-info float-right">2</span>--}}
-{{--                        <span>Dashboard</span>--}}
-{{--                    </a>--}}
-{{--                    <ul class="sub-menu" aria-expanded="false">--}}
-{{--                        <li><a href="index">Dashboard 1</a></li>--}}
-{{--                        <li><a href="index-2">Dashboard 2</a></li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
-
-
                 <li>
                     <a href="{{route('customer.index')}}" class="waves-effect">
                         <i class="mdi mdi-account"></i>
                         <span>Customer</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{route('employee.index')}}" class="waves-effect">
+                        <i class="mdi mdi-account"></i>
+                        <span>Employee</span>
+                    </a>
+                </li>
+                <li class="menu-title">Product management</li>
+                <li><a href="{{route('attribute.index')}}"><i class="fab fa-product-hunt"></i>Attribute</a></li>
+                <li><a href="{{route('product.index')}}"><i class="fab fa-product-hunt"></i> Product</a></li>
+                <li class="menu-title">Invoice management</li>
+                <li>
+                    <a href="{{route('invoice.index')}}" class="waves-effect">
+                        <i class="fas fa-file-invoice"></i>
+                        <span>Customer Invoice</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('sellerinvoice.index')}}" class="waves-effect">
+                        <i class="fas fa-file-invoice"></i>
+                        <span>Seller Invoice</span>
+                    </a>
+                </li>
 
-
-
-
-{{--                <li class="menu-title">Components</li>--}}
-
-
+                <li class="menu-title">Settings</li>
+                <li>
+                    <a href="{{route('setting.index')}}" class="waves-effect">
+                        <i class="fa fa-cog"></i>
+                        <span>General Setting</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('expense.index')}}" class="waves-effect">
+                        <i class="mdi mdi-cash-100"></i>
+                        <span>Expenses</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('report.index')}}" class="waves-effect">
+                        <i class="mdi mdi-cash-100"></i>
+                        <span>Report</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- Sidebar -->

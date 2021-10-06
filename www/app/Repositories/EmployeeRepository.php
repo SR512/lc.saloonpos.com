@@ -3,11 +3,7 @@
 
 namespace App\Repositories;
 
-
-use App\Models\Customer;
 use App\Models\Employee;
-use App\Models\Maintenance;
-use App\Models\Settings;
 use Carbon\Carbon;
 
 class EmployeeRepository
@@ -35,7 +31,7 @@ class EmployeeRepository
             'job_type' => $params->job_type,
             'commission_percentage' => $params->commission_percentage,
             'salary' => $params->salary,
-            'commission' => $params->commission,
+            //'commission' => $params->commission,
             'created_at' => Carbon::now(),
         ]);
 
@@ -59,7 +55,7 @@ class EmployeeRepository
             'job_type' => $params->job_type,
             'commission_percentage' => $params->commission_percentage,
             'salary' => $params->salary,
-            'commission' => $params->commission,
+            //'commission' => $params->commission,
             'updated_at' => Carbon::now(),
         ]);
 
