@@ -25,6 +25,8 @@
                         <span>Employee</span>
                     </a>
                 </li>
+                <li class="menu-title">Service management</li>
+                <li><a href="{{route('service.index')}}"><i class="fab fa-product-hunt"></i> Services</a></li>
                 <li class="menu-title">Product management</li>
                 <li><a href="{{route('attribute.index')}}"><i class="fab fa-product-hunt"></i>Attribute</a></li>
                 <li><a href="{{route('product.index')}}"><i class="fab fa-product-hunt"></i> Product</a></li>

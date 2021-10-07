@@ -53,6 +53,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('employees',\App\Http\Controllers\Admin\EmployeeController::class);
     Route::get('employee',[\App\Http\Controllers\Admin\EmployeeController::class,'index'])->name('employee.index');
 
+    // Servcie Controller Route
+    Route::resource('services',\App\Http\Controllers\Admin\ServiceController::class);
+    Route::get('service',[\App\Http\Controllers\Admin\ServiceController::class,'index'])->name('service.index');
+
+
     // Expense Controller Route
     Route::resource('expenses',\App\Http\Controllers\Admin\ExpenseController::class);
     Route::get('expense',[\App\Http\Controllers\Admin\ExpenseController::class,'index'])->name('expense.index');

@@ -36,7 +36,7 @@ class ServiceRepository
         return Service::findorfail($id)->update([
             'service_name' => $params->service_name,
             'price' => $params->price,
-            'created_at' => Carbon::now()
+            'updated_at' => Carbon::now()
         ]);
 
     }
