@@ -13,7 +13,7 @@ class AppointmentRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,19 @@ class AppointmentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'customer_id' => 'required',
+            'service_id' => 'required',
+            'employee_id' => 'required',
+            'appointment_date_time' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'customer_id.required' => 'The customer field is required.',
+            'service_id.required' => 'The service field is required.',
+            'employee_id.required' => 'The employee field is required.',
         ];
     }
 }

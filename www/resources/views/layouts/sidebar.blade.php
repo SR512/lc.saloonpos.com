@@ -25,6 +25,12 @@
                         <span>Employee</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{route('appointment.index')}}" class="waves-effect">
+                        <i class="mdi mdi-watch"></i>
+                        <span>Appointment</span>
+                    </a>
+                </li>
                 <li class="menu-title">Service management</li>
                 <li><a href="{{route('service.index')}}"><i class="fab fa-product-hunt"></i> Services</a></li>
                 <li class="menu-title">Product management</li>

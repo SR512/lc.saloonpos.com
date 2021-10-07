@@ -64,4 +64,13 @@ class AppointmentRepository
         return $appointment->latest()->paginate(config('constants.PER_PAGE'));
     }
 
+    // Change status
+
+    public function changeStatus($id,$params)
+    {
+        return $this->findById($id)->update([
+            'appointment_status' => $params,
+        ]);
+    }
+
 }
