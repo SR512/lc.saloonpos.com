@@ -59,6 +59,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('appointment/{id}/{status}', [\App\Http\Controllers\Admin\AppointmentController::class, 'changeStatus'])->name('appointment.status');
 
 
+    // Membership Controller Route
+    Route::resource('memberships', \App\Http\Controllers\Admin\MembershipController::class);
+    Route::get('membership', [\App\Http\Controllers\Admin\MembershipController::class, 'index'])->name('membership.index');
+    Route::get('membership/{id}', [\App\Http\Controllers\Admin\MembershipController::class, 'changeStatus'])->name('membership.status');
+
+    // Package Controller Route
+    Route::resource('packages', \App\Http\Controllers\Admin\PackageController::class);
+    Route::get('package', [\App\Http\Controllers\Admin\PackageController::class, 'index'])->name('package.index');
+    Route::get('package/{id}', [\App\Http\Controllers\Admin\PackageController::class, 'changeStatus'])->name('package.status');
+
     // Servcie Controller Route
     Route::resource('services', \App\Http\Controllers\Admin\ServiceController::class);
     Route::get('service', [\App\Http\Controllers\Admin\ServiceController::class, 'index'])->name('service.index');
