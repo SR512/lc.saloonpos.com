@@ -13,7 +13,7 @@ class PackageRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class PackageRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'packagename' => 'required',
+            'duration' => 'required|numeric',
+            'totalprice' => 'required|numeric',
         ];
     }
 }

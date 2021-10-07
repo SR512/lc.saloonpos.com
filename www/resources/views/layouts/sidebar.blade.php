@@ -26,6 +26,18 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{route('package.index')}}" class="waves-effect">
+                        <i class="mdi mdi-watch"></i>
+                        <span>Package</span>
+                    </a>
+                </li>
+{{--                <li>--}}
+{{--                    <a href="{{route('membership.index')}}" class="waves-effect">--}}
+{{--                        <i class="mdi mdi-watch"></i>--}}
+{{--                        <span>Membership</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+                <li>
                     <a href="{{route('appointment.index')}}" class="waves-effect">
                         <i class="mdi mdi-watch"></i>
                         <span>Appointment</span>

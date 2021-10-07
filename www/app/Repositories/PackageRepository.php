@@ -27,8 +27,8 @@ class PackageRepository
             'packagename' => $params->packagename,
             'duration' => $params->duration,
             'totalprice' => $params->totalprice,
-            'packagedetail' => json_encode($params->packagedetail),
-            'packagedesc' => $params->packagedesc,
+            'packagedetail' => json_encode($params->product['detail']),
+            'packagedesc' => null,
             'created_at' => Carbon::now(),
         ]);
 
@@ -42,8 +42,8 @@ class PackageRepository
             'packagename' => $params->packagename,
             'duration' => $params->duration,
             'totalprice' => $params->totalprice,
-            'packagedetail' => json_encode($params->packagedetail),
-            'packagedesc' => $params->packagedesc,
+            'packagedetail' => json_encode($params->product['detail']),
+            'packagedesc' => null,
             'updated_At' => Carbon::now(),
         ]);
 
