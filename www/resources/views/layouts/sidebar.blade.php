@@ -27,19 +27,19 @@
                 </li>
                 <li>
                     <a href="{{route('package.index')}}" class="waves-effect">
-                        <i class="mdi mdi-watch"></i>
+                        <i class="mdi mdi-package"></i>
                         <span>Package</span>
                     </a>
                 </li>
-{{--                <li>--}}
-{{--                    <a href="{{route('membership.index')}}" class="waves-effect">--}}
-{{--                        <i class="mdi mdi-watch"></i>--}}
-{{--                        <span>Membership</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
+                <li>
+                    <a href="{{route('membership.index')}}" class="waves-effect">
+                        <i class="mdi mdi-account-box-multiple"></i>
+                        <span>Membership</span>
+                    </a>
+                </li>
                 <li>
                     <a href="{{route('appointment.index')}}" class="waves-effect">
-                        <i class="mdi mdi-watch"></i>
+                        <i class="mdi mdi-timelapse"></i>
                         <span>Appointment</span>
                     </a>
                 </li>

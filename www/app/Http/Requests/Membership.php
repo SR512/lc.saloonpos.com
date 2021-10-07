@@ -13,7 +13,7 @@ class Membership extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class Membership extends FormRequest
     public function rules()
     {
         return [
-            //
+            'customer_id' => 'required',
+            'package_id' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'customer_id.required' => 'The customer field is required.',
+            'package_id.required' => 'The package field is required.',
         ];
     }
 }

@@ -26,8 +26,8 @@ class MembershipRepository
             'membership_no' => $params->membership_no,
             'customer_id' => $params->customer_id,
             'package_id' => $params->package_id,
-            'packagedetail' => json_encode($params->packagedetail),
-            'end_date' => json_encode($params->end_date),
+            'packagedetail' => $params->packagedetail,
+            'end_date' => $params->end_date,
             'created_at' => Carbon::now(),
         ]);
 
@@ -38,11 +38,7 @@ class MembershipRepository
     public function update($id, $params)
     {
         return Membership::findorfail($id)->update([
-            'membership_no' => $params->membership_no,
-            'customer_id' => $params->customer_id,
-            'package_id' => $params->package_id,
-            'packagedetail' => json_encode($params->packagedetail),
-            'end_date' => json_encode($params->end_date),
+            'packagedetail' => json_encode($params->product['detail']),
             'updated_At' => Carbon::now(),
         ]);
 
@@ -54,5 +50,18 @@ class MembershipRepository
         return Membership::find($id);
     }
 
+    // Change status
 
+    public function changeStatus($id)
+    {
+        $membership = $this->findById($id);
+
+        if($membership->status == 'ACTIVE'){
+            $membership->status = 'DEACTIVE';
+        }else{
+            $membership->status = 'ACTIVE';
+        }
+
+        return $membership->save();
+    }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title') Product List @endsection
+@section('title') Membership List @endsection
 @section('css')
 
     <!-- DataTables -->
@@ -10,7 +10,7 @@
 @section('content')
 
     @component('common-components.breadcrumb',['li_1'=>['Dashboard'=>route('home')]])
-        @slot('title') Product List  @endslot
+        @slot('title') Membership List  @endslot
     @endcomponent
 
     <div class="row">
@@ -18,20 +18,24 @@
             <div class="card">
                 <div class="card-body">
                     <div class="float-right">
-                        <a  href="{{route('products.create')}}" class="btn btn-primary btn-sm"><i
-                                class="mdi mdi-plus"></i> New Product</a>
+                        <a  href="{{route('memberships.create')}}" class="btn btn-primary btn-sm"><i
+                                class="mdi mdi-plus"></i> New Membership</a>
                     </div>
                     <div class="float-left">
                         <h4 class="card-title"></h4>
                     </div>
                     <div class="clearfix"></div>
                     <br/>
-                    <table id="datatable-product" class="table table-striped table-bordered dt-responsive nowrap"
+                    <table id="datatable-membership" class="table table-striped table-bordered dt-responsive nowrap"
                            style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
+                            <th>Membership</th>
+                            <th>Customer</th>
+                            <th>Package</th>
+                            <th>Expiry date</th>
+                            <th>status</th>
                             <th>Created At</th>
                             <th>Action</th>
                         </tr>
@@ -54,6 +58,6 @@
     <script src="{{ URL::asset('/libs/pdfmake/pdfmake.min.js')}}"></script>
 
     <!-- Datatable init js -->
-    <script src="{{ URL::asset('/js/pages/product.js')}}"></script>
+    <script src="{{ URL::asset('/js/pages/membership.js')}}"></script>
 
 @endsection
